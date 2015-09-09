@@ -7,27 +7,28 @@
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form">
+        <%= form_for :auth, url: '/auth', html: { class: 'form-horizontal' } do %>
 
           <div class="form-group">
             <label for="labelemail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
-              <input type="email" class="form-control" id="siginemail" placeholder="Email">
+              <input type="email" class="form-control" id="siginemail" placeholder="Email" name="user[email]">
             </div>
           </div>
           
           <div class="form-group">
             <label for="labelcontraseña" class="col-lg-2 control-label">Contraseña</label>
             <div class="col-lg-10">
-              <input type="password" class="form-control" id="siginpassword" placeholder="Contraseña">
+              <input type="password" class="form-control" id="siginpassword" placeholder="Contraseña" name="user[password]">
             </div>
           </div>
 
-        </form>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Ingresar</button>
+        <% end %>
+
       </div>
     </div>
   </div>

@@ -12,8 +12,16 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li><div class="navbar-text"><%= session[:user_name] %></div></li>
+        <% if session[:user_name] == nil %>
         <li><form><a href="#" class="btn btn-success navbar-btn btn-sm" data-toggle="modal" data-target="#new-user-modal">Crear Cuenta</a></form></li>
+        <% end %>
+        <% if session[:user_name] == nil %>
         <li><form><a href="#" class="btn btn-success navbar-btn btn-sm" data-toggle="modal" data-target="#sigin_form"><span class="glyphicon glyphicon-user"></span>Ingresar</a></form></li>
+        <% end %>
+        <% if session[:user_name] != nil %>
+        <li><%= form_for :auth, url: '/auth', method: :delete do %><button type="submit" class="btn btn-success navbar-btn btn-sm"><span class="glyphicon glyphicon-log-out"></span></button><% end %></li>
+        <% end %>
       </ul>
     </div>
 
