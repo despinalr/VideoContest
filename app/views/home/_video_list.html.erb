@@ -29,7 +29,16 @@
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading">Video mas Impactante</h4>
+    <h4 class="media-heading">AAAAAAAAAAAAAAAAAAAAAAAe</h4>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae luctus mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel fringilla enim. Integer ac velit eget enim aliquam bibendum a consectetur felis.123
   </div>
+
+  <div id="versions"></div>
+
+  <script>
+      var socket = io.connect('http://localhost:5001');
+      socket.on('front-change', function(msg){
+          $('#versions').append($('<li>').text(msg));
+      });
+  </script>
 </div>
