@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :contests
+
+  get 'contest/create'
+
   resources :users
 
   root 'home#index'

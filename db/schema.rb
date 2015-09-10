@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908172738) do
+ActiveRecord::Schema.define(version: 20150910181029) do
+
+  create_table "contests", force: true do |t|
+    t.string   "nombre"
+    t.string   "url"
+    t.datetime "fechainicio"
+    t.datetime "fechafin"
+    t.string   "premio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "nombre",     null: false
