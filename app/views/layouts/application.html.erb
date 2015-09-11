@@ -25,7 +25,11 @@
 <%= yield %>
 <%= render 'home/new_user_form' %>
 <%= render 'home/sigin_form' %>
+
+<% if session[:user_name] != nil %>
 <%= render 'home/video_list' %>
+<% end %>
+
 <%= render 'home/new_contest_form' %>
 
 </body>
