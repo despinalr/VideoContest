@@ -1,20 +1,10 @@
-<div class="container">
-<% @contests.each do |c| %>
-  <div class="media">
-    <div class="media-left">
-      <a href="#">
-        <% if c.image? %>
-          <%= image_tag c.image.url %>
-        <% end %>
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading"><%= c.nombre %></h4>
-      <%= c.premio %>
-    </div>
-  </div>
+<% if @contests.count > 0 %>
+<h1 class="text-center text-primary">Mis Concursos</h1>
 <% end %>
-</div>
+
+<br/><br/>
+
+<%= render 'home/contest' %>
 
   <div id="versions"></div>
 

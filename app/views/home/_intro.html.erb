@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Video Contest</h1>
+    <p>Crea concursos de video para tu empresa</p>
+    <p><a class="btn btn-primary btn-lg" role="button">Inicia Ahora</a></p>
+  </div>
+</div>
+
+<% if @contests.count > 0 %>
+<h1 class="text-left text-primary">Ultimos Concursos</h1>
+<% end %>
+
+<br/><br/>
+
+<%= render 'home/contest' %>

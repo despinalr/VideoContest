@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :videos
+
   resources :contests
 
   get 'contest/create'

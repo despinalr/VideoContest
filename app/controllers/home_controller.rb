@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@contests = Contest.all
+  	@contests = Contest.order(created_at: :desc).all
   end
 
   def about

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 		
 		if users.count == 1
 			session[:user_name] = users[0].nombre
+			session[:id] = users[0].id
 		end
 
 		redirect_to root_path

@@ -10,17 +10,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
-  <script>
-  $(function() {
-    $("#datepickerinicio").datepicker();
-    $("#datepickerfin").datepicker();
-  });
-  </script>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= render 'home/navbar' %>
+
+<% if session[:user_name] == nil %>
+<%= render 'home/intro' %>
+<% end %>
 
 <%= yield %>
 <%= render 'home/new_user_form' %>

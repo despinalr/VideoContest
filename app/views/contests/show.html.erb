@@ -1,0 +1,41 @@
+<div class="list-group">
+  <% @contests_filter.each do |c| %>
+  <div class="media">
+    <div class="media-left">
+        <a href="#">
+          <% if c.image? %>
+            <img src=<%= c.image.url %> style="width:120px;height:140px;">
+          <% end %>
+      </a>
+    </div>
+    <div class="media-body">
+      <p><h4 class="media-heading"><%= c.nombre %></h4></p>
+      <p>Inicia: <%= c.fechainicio %></p>
+      <p>Termina: <%= c.fechafin %></p>
+      <p>Premio: <%= c.premio %></p>
+      <p>Created <%= time_ago_in_words c.created_at %> ago</p>
+      <% if session[:user_name] != nil %>
+      <table>
+      <tr>
+      <td><div><a href="<%= contest_path(c) %>" class="btn btn-success btn-xs">Actualizar</a></div></td>
+      <td>&nbsp;</td>
+      <td><div><a href="<%= contest_path(c) %>" class="btn btn-danger btn-xs">Eliminar</a></div></td>
+      </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+  <br/><br/>
+  <% end %>
+</div>
+
+<div class="list-group">
+  <% @videos.each do |v| %>
+  <p><h4 class="media-heading"><%= v.nombre %></h4></p>
+      <p>Inicia: <%= v.apellido %></p>
+      <p>Termina: <%= v.email %></p>
+      <p>Premio: <%= v.estado %></p>
+      <p>Created <%= time_ago_in_words c.created_at %> ago</p>
+  <br/><br/>
+  <% end %>
+</div>
