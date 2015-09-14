@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913011557) do
+ActiveRecord::Schema.define(version: 20150914172742) do
 
   create_table "contests", force: true do |t|
     t.string   "nombre"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20150913011557) do
     t.integer  "estado"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
   end
 
 end

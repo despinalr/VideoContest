@@ -15,13 +15,11 @@
       <p>Premio: <%= c.premio %></p>
       <p>Created <%= time_ago_in_words c.created_at %> ago</p>
       <% if session[:user_name] != nil %>
-      <table>
-      <tr>
+      <table><tr>
       <td><div><a href="<%= contest_path(c) %>" class="btn btn-success btn-xs">Actualizar</a></div></td>
       <td>&nbsp;</td>
       <td><div><a href="<%= contest_path(c) %>" class="btn btn-danger btn-xs">Eliminar</a></div></td>
-      </tr>
-      </table>
+      </tr></table>
       <% end %>
     </div>
   </div>
@@ -29,13 +27,33 @@
   <% end %>
 </div>
 
+<%= render 'home/new_video' %>
+
+<div class="container">
+<form><a href="#" class="btn btn-success navbar-btn btn-sm" data-toggle="modal" data-target="#new-video"><span class="glyphicon glyphicon-film"></span>&nbsp;Agregar Video</a></form>
+</div>
+
+<br/><br/>
+
 <div class="list-group">
   <% @videos.each do |v| %>
-  <p><h4 class="media-heading"><%= v.nombre %></h4></p>
-      <p>Inicia: <%= v.apellido %></p>
-      <p>Termina: <%= v.email %></p>
-      <p>Premio: <%= v.estado %></p>
-      <p>Created <%= time_ago_in_words c.created_at %> ago</p>
+  <div class="media">
+    <div class="media-left">
+        <a href="#">
+          <video width="240" height="160" preload controls>
+            <source src="<%= v.video.url %>">
+          </video>
+      </a>
+    </div>
+    <div class="media-body">
+      <p><h4 class="media-heading"><%= v.nombre %> <%= v.apellido %></h4></p>
+      <p><%= v.email %></p>
+      <p>Estado: <%= v.estado %></p>
+      <p>Created <%= time_ago_in_words v.created_at %> ago</p>
+      <p><%= v.video.url %></p>
+      <br/><br/>
+    </div>
+  </div>
   <br/><br/>
   <% end %>
 </div>
