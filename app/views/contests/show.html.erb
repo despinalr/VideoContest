@@ -16,22 +16,25 @@
       <p>Created <%= time_ago_in_words c.created_at %> ago</p>
       <% if session[:user_name] != nil %>
       <table><tr>
-      <td><div><a href="<%= contest_path(c) %>" class="btn btn-success btn-xs">Actualizar</a></div></td>
+      <td><div><form><a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#new-contest-modal">Actualizar</a></form></div></td>
       <td>&nbsp;</td>
-      <td><div><a href="<%= contest_path(c) %>" class="btn btn-danger btn-xs">Eliminar</a></div></td>
+      <td><div><form><a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#delete-contest">Eliminar</a></form></div></td>
       </tr></table>
       <% end %>
     </div>
-  </div>
+    </div>
   <br/><br/>
   <% end %>
 </div>
 
 <%= render 'home/new_video' %>
+<%= render 'home/delete_contest' %>
 
+<% if session[:user_name] == nil %>
 <div class="container">
 <form><a href="#" class="btn btn-success navbar-btn btn-sm" data-toggle="modal" data-target="#new-video"><span class="glyphicon glyphicon-film"></span>&nbsp;Agregar Video</a></form>
 </div>
+<% end %>
 
 <br/><br/>
 

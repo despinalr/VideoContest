@@ -1,10 +1,13 @@
+<% if @idContest == 0 %>
 <div class="jumbotron">
   <div class="container">
     <h1>Video Contest</h1>
-    <p>Crea concursos de video para tu empresa</p>
-    <p><a class="btn btn-primary btn-lg" role="button">Inicia Ahora</a></p>
+    <p>Crea concursos de video para tu empresa. Registrate ya para crear tus concursos...</p>
+    <p>No es necesario estar registrado para subir tus videos!!!</p>
+    <p><form><a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#new-user-modal">Inicia Ahora</a></form></p>
   </div>
 </div>
+<% end %>
 
 <% if @contests.count > 0 %>
 <h1 class="text-left text-primary">Ultimos Concursos</h1>
