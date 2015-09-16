@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   delete '/auth' => 'users#logout'
 
   delete '/contests' => 'contests#destroy'
+  put '/contests' => 'contests#edit'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
