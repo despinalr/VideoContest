@@ -1,5 +1,6 @@
 class ContestsController < ApplicationController
 	def show
+		session[:message] = nil
 		@contests_filter = Contest.order(created_at: :desc).where(url: params[:id])
 
 		if @contests_filter.count > 0

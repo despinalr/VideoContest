@@ -43,18 +43,47 @@
   <% @videos.each do |v| %>
   <div class="media">
     <div class="media-left">
-        <a href="#">
+    <table><tr><td>Video Original</td><td>Video Convertido</td></tr>
+    <tr>
+      <td>
+      <% if v.video_content_type == "video/mp4" %>
+      <a href="#">
           <video width="240" height="160" preload controls>
-            <source src="<%= v.video.url %>">
+            <source src="<%= v.video.url %>" type="video/mp4">
           </video>
       </a>
+      <% else %>
+      <script type="text/javascript" src="http://cdn.jsdelivr.net/jwplayer/5.10/jwplayer.js"></script>
+      <div id="player_1"></div>
+      <script type="text/javascript">
+      jwplayer('player_1').setup({
+          file: "<%= v.video.url %>",
+          width: "200",
+          height: "200",
+          stretching: "fill",
+          flashplayer:"http://cdn.jsdelivr.net/jwplayer/5.10/player.swf"
+        });
+      </script>
+      <% end %>
+      </td>
+      <% if v.video_new_path != nil %>
+      <td>
+      <a href="#">
+          <video width="240" height="160" preload controls>
+            <source src="<%= v.video_new_path %>" type="video/mp4">
+          </video>
+      </a>
+      </td>
+      <% end %>
+      </tr></table>
     </div>
     <div class="media-body">
       <p><h4 class="media-heading"><%= v.nombre %> <%= v.apellido %></h4></p>
       <p><%= v.email %></p>
-      <p>Estado: <%= v.estado %></p>
+      <p>Estado: <% if v.estado == 0 %>Pendiente<% else %>Convertido<% end %></p>
       <p>Created <%= time_ago_in_words v.created_at %> ago</p>
       <p><%= v.video.url %></p>
+      <p><%= v.video_content_type %></p>
       <br/><br/>
     </div>
   </div>

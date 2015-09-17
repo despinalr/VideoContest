@@ -13,6 +13,12 @@
 <h1 class="text-left text-primary">Ultimos Concursos</h1>
 <% end %>
 
+<% if session[:message] != nil %>
+<div class="alert alert-warning alert-dismissible" role="alert">
+<%= session[:message] %>
+</div>
+<% end %>
+
 <br/><br/>
 
 <%= render 'home/contest' %>
