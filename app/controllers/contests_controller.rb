@@ -2,6 +2,7 @@ class ContestsController < ApplicationController
 	def show
 		session[:message] = nil
 		@contests_filter = Contest.order(created_at: :desc).where(url: params[:id])
+		@contests_filter = @contests_filter.paginate(:page => 1, :per_page => 10)
 
 		if @contests_filter.count > 0
 			@current_contest = @contests_filter[0]
@@ -15,6 +16,7 @@ class ContestsController < ApplicationController
 		else
 			@videos = Video.order(created_at: :desc).where(contest_id: @idContest, estado: 1)
 		end
+		@videos = @videos.paginate(:page => 1, :per_page => 10)
 	end
 
 	def create
