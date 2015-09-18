@@ -83,8 +83,7 @@
       <p><%= v.email %></p>
       <p>Estado: <% if v.estado == 0 %>Pendiente<% else %>Convertido<% end %></p>
       <p>Created <%= time_ago_in_words v.created_at %> ago</p>
-      <p><%= v.video.url %></p>
-      <p><%= v.video_content_type %></p>
+      <p>Formato: <%= v.video_content_type %></p>
       <br/><br/>
     </div>
   </div>
