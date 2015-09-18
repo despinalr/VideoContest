@@ -1,10 +1,16 @@
 <script>
   $(function() {
-    $("#datepickerinicio").datepicker( { dateFormat: 'dd/mm/yy' } );
-    $("#datepickerfin").datepicker( { dateFormat: 'dd/mm/yy' } );
+    $("#datepickerinicioec").datepicker( { dateFormat: 'dd/mm/yy' } );
+    $("#datepickerfinec").datepicker( { dateFormat: 'dd/mm/yy' } );
   });
+  function validateFormNC() {
+    if($("#nombreContestnc").val() == "") { alert('Nombre de Concurso Obligatorio'); return false; }
+    if($("#urlContestnc").val() == "") { alert('Url Obligatoria'); return false; }
+    if($("#datepickerinicionc").val() == "") { alert('Fecha Inicio Obligatoria'); return false; }
+    if($("#datepickerfinnc").val() == "") { alert('Fecha Fin Obligatoria'); return false; }
+    if($("#descPremioContestnc").val() == "") { alert('Descripción de Premio Obligatoria'); return false; }
+  }
   </script>
-
 <div class="modal fade" id="new-contest-modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -14,12 +20,12 @@
       </div>
       <div class="modal-body">
 
-        <%= form_for :contest, url: '/contests', :html => { :multipart => true, :class => 'form-horizontal' } do |c| %>
+        <%= form_for :contest, url: '/contests', :html => { :multipart => true, :class => 'form-horizontal', onsubmit: 'return validateFormNC()' } do |c| %>
 
           <div class="form-group">
             <label for="labelnombre" class="col-lg-2 control-label">Nombre</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="nombreContest" placeholder="Nombre" name="contest[nombre]">
+              <input type="text" class="form-control" id="nombreContestnc" placeholder="Nombre" name="contest[nombre]">
             </div>
           </div>
           <div class="form-group">
@@ -31,25 +37,25 @@
           <div class="form-group">
             <label for="labelapellidos" class="col-lg-2 control-label">Url</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="urlContest" placeholder="Url" name="contest[url]">
+              <input type="text" class="form-control" id="urlContestnc" placeholder="Url" name="contest[url]">
             </div>
           </div>
           <div class="form-group">
             <label for="labelemail" class="col-lg-2 control-label">Fecha Inicio</label>
             <div class="col-lg-10">
-              <input type="text" id="datepickerinicio" class="form-control" placeholder="Fecha Inicio" name="contest[fechainicio]">
+              <input type="text" id="datepickerinicionc" class="form-control" placeholder="Fecha Inicio" name="contest[fechainicio]">
             </div>
           </div>
           <div class="form-group">
             <label for="labelemail" class="col-lg-2 control-label">Fecha Fin</label>
             <div class="col-lg-10">
-              <input type="text" id="datepickerfin" class="form-control" placeholder="Fecha Fin" name="contest[fechafin]">
+              <input type="text" id="datepickerfinnc" class="form-control" placeholder="Fecha Fin" name="contest[fechafin]">
             </div>
           </div>
           <div class="form-group">
             <label for="labelnombre" class="col-lg-2 control-label">Descripcion Premio</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="descPremioContest" placeholder="Descripcion Premio" name="contest[premio]">
+              <input type="text" class="form-control" id="descPremioContestnc" placeholder="Descripcion Premio" name="contest[premio]">
             </div>
           </div>
 

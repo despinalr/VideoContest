@@ -1,3 +1,9 @@
+<script>
+  function validateFormSI() {
+    if($("#siginemail").val() == "") { alert('Email Obligatorio'); return false; }
+    if($("#siginpassword").val() == "") { alert('Password Obligatorio'); return false; }
+  }
+</script>
 <div class="modal fade" id="sigin_form" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -7,7 +13,7 @@
       </div>
       <div class="modal-body">
 
-        <%= form_for :auth, url: '/auth', html: { class: 'form-horizontal' } do %>
+        <%= form_for :auth, url: '/auth', html: { class: 'form-horizontal', onsubmit: 'return validateFormSI()' } do %>
 
           <div class="form-group">
             <label for="labelemail" class="col-lg-2 control-label">Email</label>
